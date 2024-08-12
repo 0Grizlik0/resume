@@ -21,7 +21,7 @@
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f0f2f5;
+            background-color: #191b2b;
         }
         .container {
             background-color: white;
@@ -158,17 +158,21 @@
         .portfolio {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
+            gap: 40px;
             margin-top: 20px;
+            margin-right: 20px;
         }
         .portfolio img {
-            width: 100%;
-            height: 200px;
+            width: 120%;
+            height: 350px;
             object-fit: cover;
-            border-radius: 5px;
+            border-radius: 20px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
         }
+        .portfolio a:nth-last-child(-n+2) img {
+  object-fit: contain;
+}
         .portfolio img:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.2), 0 0 15px var(--neon-blue);
@@ -181,7 +185,7 @@
         }
         .languages li {
             background-color: rgba(18, 4, 88, 0.1);
-            padding: 10px 20px;
+            padding: 5px 10px;
             border-radius: 5px;
             text-align: center;
         }
@@ -200,7 +204,7 @@
     <div class="container">
         <div class="header">
             <h1>Illia Haidarenko</h1>
-            <p>Junior 3D Artist</p>
+            <p>3D Artist</p>
         </div>
         <div class="content">
             <div class="contact-info">
@@ -267,13 +271,26 @@
             </div>
 
             <h2>Portfolio Highlights</h2>
+            <p>🌐 <a href="https://www.artstation.com/grizlik">ArtStation</a></p>
             <div class="portfolio">
-                <img src="https://cdna.artstation.com/p/assets/images/images/078/805/162/large/illia-haidarenko-witch-2.jpg?1723123862" alt="Witch">
-                <img src="https://cdna.artstation.com/p/assets/images/images/074/229/174/large/illia-haidarenko-render5.jpg?1711547202" alt="Davy Jones">
-                <img src="https://cdnb.artstation.com/p/assets/images/images/067/705/579/large/illia-haidarenko-ben-render2.jpg?1696007419" alt="BEN">
-                <img src="https://cdna.artstation.com/p/assets/images/images/075/271/238/large/illia-haidarenko-rubick-4.jpg?1714135803" alt="Rubick">
-                <img src="https://cdna.artstation.com/p/assets/images/images/067/705/394/large/illia-haidarenko-arm-render.jpg?1696007222" alt="Arm">
-                <img src="https://cdnb.artstation.com/p/assets/images/images/067/705/203/large/illia-haidarenko-ae86-render.jpg?1696006568" alt="AE86">
+                <a href="https://www.artstation.com/artwork/oJOzGw" target="_blank">
+        <img src="https://cdna.artstation.com/p/assets/images/images/078/805/162/large/illia-haidarenko-witch-2.jpg?1723123862" alt="Witch">
+    </a>
+    <a href="https://www.artstation.com/artwork/DvDX2A" target="_blank">
+        <img src="https://cdna.artstation.com/p/assets/images/images/074/229/174/large/illia-haidarenko-render5.jpg?1711547202" alt="Davy Jones">
+    </a>
+    <a href="https://www.artstation.com/artwork/aor0J2" target="_blank">
+        <img src="https://cdnb.artstation.com/p/assets/images/images/067/705/579/large/illia-haidarenko-ben-render2.jpg?1696007419" alt="BEN">
+    </a>
+    <a href="https://www.artstation.com/artwork/n0nQg4" target="_blank">
+        <img src="https://cdna.artstation.com/p/assets/images/images/075/271/238/large/illia-haidarenko-rubick-4.jpg?1714135803" alt="Rubick">
+    </a>
+    <a href="https://www.artstation.com/artwork/rJ5lnE" target="_blank">
+        <img src="https://cdna.artstation.com/p/assets/images/images/067/705/394/large/illia-haidarenko-arm-render.jpg?1696007222" alt="Arm">
+    </a>
+    <a href="https://www.artstation.com/artwork/39PEVo" target="_blank">
+        <img src="https://cdnb.artstation.com/p/assets/images/images/067/705/203/large/illia-haidarenko-ae86-render.jpg?1696006568" alt="AE86">
+    </a>
             </div>
 
             <h2>Additional Information</h2>
