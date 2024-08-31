@@ -5,377 +5,221 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Illia Haidarenko - 3D Artist</title>
     <style>
-         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;700&display=swap');
         
         :root {
-            --neon-blue: #00ffff;
-            --neon-pink: #ff00ff;
-            --neon-purple: #bf00ff;
-            --dark-bg: #0c022e; /* Darker background (approximately 35% darker) */
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
         }
         
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--text-color);
             margin: 0;
-            padding: 20px;
-            background: var(--dark-bg);
-            position: relative;
-            overflow-x: hidden;
-        }
-        
-        /* Background with nebula and stars */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(ellipse at center, rgba(255,0,255,0.2) 0%, rgba(12,2,46,0) 40%),
-                radial-gradient(ellipse at center, rgba(0,255,255,0.2) 0%, rgba(12,2,46,0) 40%),
-                radial-gradient(ellipse at center, rgba(191,0,255,0.2) 0%, rgba(12,2,46,0) 40%);
-            background-size: 200% 200%, 150% 150%, 100% 100%;
-            animation: nebula 20s ease infinite;
-            z-index: -2;
-        }
-        
-        /* Stars in random order */
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
-        }
-        
-        .star {
-            position: absolute;
-            border-radius: 50%;
-        }
-        
-        /* Wireframe cube */
-        .wireframe-cube {
-            position: fixed;
-            width: 130px;
-            height: 130px;
-            border: 1px solid rgba(0, 255, 255, 0.3);
-            transform-style: preserve-3d;
-            animation: rotateCube 20s linear infinite, moveCube 30s ease-in-out infinite alternate;
-            z-index: -1;
-        }
-        
-        .wireframe-cube div {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 2px solid rgba(255, 0, 255, 0.3);
-        }
-        
-        .front { transform: translateZ(65px); }
-        .back { transform: translateZ(-65px) rotateY(180deg); }
-        .right { transform: translateX(65px) rotateY(90deg); }
-        .left { transform: translateX(-65px) rotateY(-90deg); }
-        .top { transform: translateY(-65px) rotateX(90deg); }
-        .bottom { transform: translateY(65px) rotateX(-90deg); }
-        
-        /* Header cube */
-        .header-cube {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            top: 50%;
-            left: 50%;
-            transform-style: preserve-3d;
-            animation: rotateCube 15s linear infinite;
-            z-index: -1;
-        }
-        
-        .header-cube div {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            opacity: 0.7;
-        }
-        
-        .header-front { transform: translateZ(100px); }
-        .header-back { transform: translateZ(-100px) rotateY(180deg); }
-        .header-right { transform: translateX(100px) rotateY(90deg); }
-        .header-left { transform: translateX(-100px) rotateY(-90deg); }
-        .header-top { transform: translateY(-100px) rotateX(90deg); }
-        .header-bottom { transform: translateY(100px) rotateX(-90deg); }
-        
-        @keyframes nebula {
-            0% { background-position: 0% 0%, 0% 0%, 0% 0%; }
-            50% { background-position: 100% 100%, -100% 100%, 100% -100%; }
-            100% { background-position: 0% 0%, 0% 0%, 0% 0%; }
-        }
-        
-        @keyframes rotateCube {
-            0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-            100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
-        }
-        
-        @keyframes moveCube {
-            0% { top: 10%; left: 10%; }
-            25% { top: 10%; left: 90%; }
-            50% { top: 80%; left: 90%; }
-            75% { top: 80%; left: 10%; }
-            100% { top: 10%; left: 10%; }
+            padding: 0;
+            background-color: var(--background-color);
         }
         
         .container {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0,255,255,0.3);
-            overflow: hidden;
-            position: relative;
-            z-index: 1;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
+        
         .header {
-            background: linear-gradient(45deg, var(--dark-bg), #2a0845);
-            color: white;
-            padding: 40px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            padding: 2rem 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 8px 8px 0 0;
         }
-        .header::before, .header::after {
-            content: "";
-            position: absolute;
-            top: -50%;
-            width: 200%;
-            height: 200%;
-            background: repeating-linear-gradient(
-                60deg,
-                transparent,
-                transparent 10px,
-                rgba(0, 255, 255, 0.05) 10px,
-                rgba(0, 255, 255, 0.05) 20px
-            );
-            animation: moveLines 50s linear infinite;
-        }
-        .header::after {
-            top: 50%;
-            background: repeating-linear-gradient(
-                120deg,
-                transparent,
-                transparent 10px,
-                rgba(255, 0, 255, 0.05) 10px,
-                rgba(255, 0, 255, 0.05) 20px
-            );
-        }
-        @keyframes moveLines {
-            0% { transform: translateX(0) rotate(0deg); }
-            100% { transform: translateX(-100%) rotate(360deg); }
-        }
-        .content {
-            padding: 40px;
-            position: relative;
-        }
+        
         h1, h2, h3 {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
+        
         h1 {
             margin: 0;
             font-size: 2.5em;
-            text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue);
         }
+        
         h2 {
-            color: var(--dark-bg);
-            border-bottom: 2px solid var(--neon-purple);
-            padding-bottom: 10px;
-            margin-top: 30px;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
         }
-        .contact-info {
-            background-color: rgba(18, 4, 88, 0.1);
-            padding: 20px;
-            border-radius: 5px;
-            margin-top: 30px;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+        
+        .content {
+            padding: 2rem;
         }
-        .contact-info p {
-            margin: 5px 0;
-        }
-        .skills {
+        
+        .skills, .programs {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
         }
-        .skill {
-            background-color: var(--dark-bg);
+        
+        .skill, .program {
+            background-color: var(--secondary-color);
             color: white;
-            padding: 5px 15px;
+            padding: 0.3rem 0.8rem;
             border-radius: 20px;
             font-size: 0.9em;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
-        .skill::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent,
-                rgba(255, 255, 255, 0.1),
-                transparent
-            );
-            transform: rotate(45deg);
-            transition: all 0.3s ease;
+        
+        .skill:hover, .program:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
         }
-        .skill:hover::before {
-            left: 100%;
-            top: 100%;
-        }
-        .skill:hover {
-            box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-pink);
-        }
-        .work-experience, .education, .languages {
-            margin-bottom: 30px;
-        }
+        
         .project {
-            border-left: 3px solid var(--neon-purple);
-            padding-left: 20px;
-            margin-bottom: 20px;
-            position: relative;
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent-color);
         }
-        .project::before {
-            content: "";
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background-color: var(--neon-purple);
-            left: -9px;
-            top: 5px;
-            box-shadow: 0 0 10px var(--neon-purple);
-        }
-        .portfolio {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 40px;
-            margin-top: 20px;
-            margin-right: 20px;
-        }
-        .portfolio img {
-            width: 120%;
-            height: 350px;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-        .portfolio a:nth-last-child(-n+2) img {
-            object-fit: contain;
-        }
-        .portfolio img:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2), 0 0 15px var(--neon-blue);
-        }
+        
         .languages ul {
             list-style-type: none;
             padding: 0;
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
         }
+        
         .languages li {
-            background-color: rgba(18, 4, 88, 0.1);
-            padding: 5px 10px;
+            background-color: var(--background-color);
+            padding: 0.5rem 1rem;
             border-radius: 5px;
-            text-align: center;
+            margin-bottom: 0.5rem;
         }
-        a {
-            color: var(--neon-purple);
-            text-decoration: none;
+        
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 1.5rem;
+        }
+        
+        .portfolio img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
             transition: all 0.3s ease;
         }
+        
+        .portfolio img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-info {
+            background-color: var(--background-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+        
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
         a:hover {
-            color: var(--neon-pink);
-            text-shadow: 0 0 5px var(--neon-pink);
+            color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .content {
+                padding: 1rem;
+            }
+            
+            .portfolio {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
         }
     </style>
 </head>
 <body>
-    <div class="stars"></div>
-    <div class="wireframe-cube">
-        <div class="front"></div>
-        <div class="back"></div>
-        <div class="right"></div>
-        <div class="left"></div>
-        <div class="top"></div>
-        <div class="bottom"></div>
-    </div>
     <div class="container">
-        <div class="header">
-            <div class="header-cube">
-                <div class="header-front"></div>
-                <div class="header-back"></div>
-                <div class="header-right"></div>
-                <div class="header-left"></div>
-                <div class="header-top"></div>
-                <div class="header-bottom"></div>
-            </div>
+        <header class="header">
             <h1>Illia Haidarenko</h1>
             <p>3D Artist</p>
             <p>📍 Remote Work | Open to Relocation</p>
-        </div>        <div class="content">
-            <h2>About</h2>
-            <p>21-year-old 3D artist with a background in indie projects, specializing in the creation of models of objects, scenes, and characters. Proficient in managing the full 3D production pipeline, from concept to final asset delivery. Eager to grow and evolve in the dynamic game development industry.</p>
-            <p>Open to full-time, part-time, or freelance opportunities. Enthusiastic about learning new tools and technologies. Prefer small to medium-sized teams with direct communication between participants.</p>
+        </header>
+        
+        <div class="content">
+            <section>
+                <h2>About</h2>
+                <p>21-year-old 3D artist specializing in creating models of objects, scenes, and characters for indie projects. Proficient in managing the full 3D production pipeline, from concept to final asset delivery. Eager to grow and evolve in the dynamic game development industry.</p>
+                <p>Open to full-time, part-time, or freelance opportunities. Enthusiastic about learning new tools and technologies. Prefer small to medium-sized teams with direct communication between participants.</p>
+            </section>
 
-            <h2>Education</h2>
-            <div class="education">
+            <section>
+                <h2>Education</h2>
                 <div class="project">
                     <h3>Bachelor's Degree in Computer Science</h3>
                     <p><em>National Technical University "Kharkiv Polytechnic Institute" (NTU "KhPI")</em></p>
                     <p><em>Specialization: Modeling, Design, and Computer Graphics</em></p>
                     <p><em>Graduated: 2024</em></p>
                 </div>
-            </div>
+            </section>
 
-            <h2>Skills</h2>
-            <div class="skills">
-                <span class="skill">3D Modeling</span>
-                <span class="skill">Low-poly Modeling</span>
-                <span class="skill">Mid-poly Modeling</span>
-                <span class="skill">High-poly Modeling</span>
-                <span class="skill">Retopology</span>
-                <span class="skill">UV</span>
-                <span class="skill">Baking</span>
-                <span class="skill">Texturing</span>
-            </div>
-            <h2>Programs</h2>
-            <div class="skills">
-                <span class="skill">Blender</span>
-                <span class="skill">Substance 3D Painter</span>
-                <span class="skill">Marmoset Toolbag</span>
-                <span class="skill">Marvelous Designer</span>
-                <span class="skill">Unity Engine</span>
-            </div>
+            <section>
+                <h2>Skills</h2>
+                <div class="skills">
+                    <span class="skill">3D Modeling</span>
+                    <span class="skill">Low-poly Modeling</span>
+                    <span class="skill">Mid-poly Modeling</span>
+                    <span class="skill">High-poly Modeling</span>
+                    <span class="skill">Retopology</span>
+                    <span class="skill">UV</span>
+                    <span class="skill">Baking</span>
+                    <span class="skill">Texturing</span>
+                </div>
+            </section>
 
-            <h2>Experience</h2>
-            <div class="work-experience">
+            <section>
+                <h2>Programs</h2>
+                <div class="programs">
+                    <span class="program">Blender</span>
+                    <span class="program">Substance 3D Painter</span>
+                    <span class="program">Marmoset Toolbag</span>
+                    <span class="program">Marvelous Designer</span>
+                    <span class="program">Unity Engine</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>Experience</h2>
                 <div class="project">
                     <h3>3D Artist | Modern World (Blockchain Game)</h3>
                     <p><em>September 2022 – May 2023</em></p>
                     <ul>
-                        <li>Creating low-poly scenes</li>
-                        <li>Searching and coordinating concept arts</li>
-                        <li>Modeling and texturing game objects</li>
+                        <li>Created low-poly scenes</li>
+                        <li>Searched and coordinated concept arts</li>
+                        <li>Modeled and textured game objects</li>
                         <li>Contributed significantly to the game's visual appeal, driving rapid popularity growth in its initial phase</li>
                     </ul>
                 </div>
@@ -387,77 +231,55 @@
                         <li>Applied collaborative skills in a non-commercial project environment</li>
                     </ul>
                 </div>
-            </div>
+            </section>
 
-            <h2>Language Proficiency</h2>
-            <div class="languages">
-                <ul>
-                    <li>Ukrainian: Native</li>
-                    <li>Russian: Native</li>
-                    <li>English: Professional Working Proficiency</li>
-                </ul>
-            </div>
+            <section>
+                <h2>Language Proficiency</h2>
+                <div class="languages">
+                    <ul>
+                        <li>Ukrainian: Native</li>
+                        <li>Russian: Native</li>
+                        <li>English: Professional Working Proficiency</li>
+                    </ul>
+                </div>
+            </section>
 
-            <h2>Portfolio Highlights</h2>
-            <p>🌐 <a href="https://www.artstation.com/grizlik">ArtStation</a></p>
-            <div class="portfolio">
-                <a href="https://www.artstation.com/artwork/dy83rw" target="_blank">
-                    <img src="https://cdna.artstation.com/p/assets/images/images/079/291/456/large/illia-haidarenko-plantoid.jpg?1724504980" alt="Plantoid">
-                </a>
-                <a href="https://www.artstation.com/artwork/oJOzGw" target="_blank">
-                    <img src="https://cdna.artstation.com/p/assets/images/images/078/805/162/large/illia-haidarenko-witch-2.jpg?1723123862" alt="Witch">
-                </a>
-                <a href="https://www.artstation.com/artwork/DvDX2A" target="_blank">
-                    <img src="https://cdna.artstation.com/p/assets/images/images/074/229/174/large/illia-haidarenko-render5.jpg?1711547202" alt="Davy Jones">
-                </a>
-                <a href="https://www.artstation.com/artwork/aor0J2" target="_blank">
-                    <img src="https://cdnb.artstation.com/p/assets/images/images/067/705/579/large/illia-haidarenko-ben-render2.jpg?1696007419" alt="BEN">
-                </a>
-                <a href="https://www.artstation.com/artwork/n0nQg4" target="_blank">
-                    <img src="https://cdna.artstation.com/p/assets/images/images/075/271/238/large/illia-haidarenko-rubick-4.jpg?1714135803" alt="Rubick">
-                </a>
-                <a href="https://www.artstation.com/artwork/rJ5lnE" target="_blank">
-                    <img src="https://cdna.artstation.com/p/assets/images/images/067/705/394/large/illia-haidarenko-arm-render.jpg?1696007222" alt="Arm">
-                </a>
-            </div>
-
-            <h2>Contact Information</h2>
-            <div class="contact-info">
-                <p>📧 <a href="mailto:illiahaidarenko@gmail.com">illiahaidarenko@gmail.com</a></p>
-                <p>📱 <a href="tel:+380968685082">+380968685082</a></p>
-                <p>💬 <a href="https://t.me/Grizlichok">Telegram</a></p>
+            <section>
+                <h2>Portfolio Highlights</h2>
                 <p>🌐 <a href="https://www.artstation.com/grizlik">ArtStation</a></p>
-                <p>💼 <a href="https://www.linkedin.com/in/grizlik">LinkedIn</a></p>
-            </div>
+                <div class="portfolio">
+                    <a href="https://www.artstation.com/artwork/dy83rw" target="_blank">
+                        <img src="https://cdna.artstation.com/p/assets/images/images/079/291/456/large/illia-haidarenko-plantoid.jpg?1724504980" alt="Plantoid">
+                    </a>
+                    <a href="https://www.artstation.com/artwork/oJOzGw" target="_blank">
+                        <img src="https://cdna.artstation.com/p/assets/images/images/078/805/162/large/illia-haidarenko-witch-2.jpg?1723123862" alt="Witch">
+                    </a>
+                    <a href="https://www.artstation.com/artwork/DvDX2A" target="_blank">
+                        <img src="https://cdna.artstation.com/p/assets/images/images/074/229/174/large/illia-haidarenko-render5.jpg?1711547202" alt="Davy Jones">
+                    </a>
+                    <a href="https://www.artstation.com/artwork/aor0J2" target="_blank">
+                        <img src="https://cdnb.artstation.com/p/assets/images/images/067/705/579/large/illia-haidarenko-ben-render2.jpg?1696007419" alt="BEN">
+                    </a>
+                    <a href="https://www.artstation.com/artwork/n0nQg4" target="_blank">
+                        <img src="https://cdna.artstation.com/p/assets/images/images/075/271/238/large/illia-haidarenko-rubick-4.jpg?1714135803" alt="Rubick">
+                    </a>
+                    <a href="https://www.artstation.com/artwork/rJ5lnE" target="_blank">
+                        <img src="https://cdna.artstation.com/p/assets/images/images/067/705/394/large/illia-haidarenko-arm-render.jpg?1696007222" alt="Arm">
+                    </a>
+                </div>
+            </section>
+
+            <section>
+                <h2>Contact Information</h2>
+                <div class="contact-info">
+                    <p>📧 <a href="mailto:illiahaidarenko@gmail.com">illiahaidarenko@gmail.com</a></p>
+                    <p>📱 <a href="tel:+380968685082">+380968685082</a></p>
+                    <p>💬 <a href="https://t.me/Grizlichok">Telegram</a></p>
+                    <p>🌐 <a href="https://www.artstation.com/grizlik">ArtStation</a></p>
+                    <p>💼 <a href="https://www.linkedin.com/in/grizlik">LinkedIn</a></p>
+                </div>
+            </section>
         </div>
     </div>
- </div>
-    <script>
-        // Generation of random stars with different colors
-        const starsContainer = document.querySelector('.stars');
-        const numStars = 1600;
-        const colorTemperatures = [
-    'rgba(255, 128, 128, 0.8)', // Warm (low Kelvin)
-    'rgba(255, 179, 102, 0.7)',
-    'rgba(255, 209, 179, 0.6)',
-    'rgba(255, 255, 255, 0.5)', // Neutral
-    'rgba(179, 224, 255, 0.4)',
-    'rgba(128, 204, 255, 0.3)',
-    'rgba(77, 184, 255, 0.2)'  // Cool (high Kelvin)
-];
-
-        for (let i = 0; i < numStars; i++) {
-            const star = document.createElement('div');
-            star.classList.add('star');
-            star.style.width = `${Math.random() * 2}px`;
-            star.style.height = star.style.width;
-            star.style.top = `${Math.random() * 100}%`;
-            star.style.left = `${Math.random() * 100}%`;
-            star.style.backgroundColor = colorTemperatures[Math.floor(Math.random() * colorTemperatures.length)];
-            star.style.animationDuration = `${Math.random() * 3 + 2}s`;
-            star.style.animationDelay = `${Math.random() * 3}s`;
-            starsContainer.appendChild(star);
-        }
-    </script>
 </body>
 </html>
