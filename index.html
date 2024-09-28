@@ -3,289 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Illia Haidarenko - 3D Artist</title>
+    <title>Resume - Illia Haidarenko</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;700&display=swap');
-        
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --background-color: #ecf0f1;
-            --text-color: #34495e;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
         
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-color);
+            color: #333;
+            max-width: 21cm;
+            margin: 0 auto;
+            padding: 1cm;
+            box-sizing: border-box;
+            display: flex;
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            background-color: white;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        .main-content {
+            flex: 2;
+            padding-right: 20px;
+        }
+        
+        .sidebar {
+            flex: 1;
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-left: 1px solid #e0e0e0;
         }
         
         .header {
-            text-align: center;
-            padding: 2rem 0;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            border-radius: 8px 8px 0 0;
-        }
-        
-        h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
         }
         
         h1 {
+            color: #2c3e50;
             margin: 0;
             font-size: 2.5em;
         }
         
         h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 0.5rem;
-            margin-top: 2rem;
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-top: 20px;
         }
         
-        .content {
-            padding: 2rem;
+        .subtitle {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        
+        .section {
+            margin-bottom: 20px;
         }
         
         .skills, .programs {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
+            gap: 5px;
         }
         
         .skill, .program {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9em;
-            transition: all 0.3s ease;
+            background-color: #ecf0f1;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.85em;
         }
         
-        .skill:hover, .program:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-2px);
+        .experience-item {
+            margin-bottom: 15px;
         }
         
-        .project {
-            margin-bottom: 1.5rem;
-            padding-left: 1rem;
-            border-left: 3px solid var(--accent-color);
+        .experience-title {
+            font-weight: bold;
         }
         
-        .languages ul {
+        .experience-date {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 20px;
+        }
+        
+        .sidebar h3 {
+            color: #2c3e50;
+            border-bottom: 1px solid #3498db;
+            padding-bottom: 5px;
+        }
+        
+        .sidebar ul {
             list-style-type: none;
             padding: 0;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
         }
         
-        .languages li {
-            background-color: var(--background-color);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            margin-bottom: 0.5rem;
+        .sidebar li {
+            margin-bottom: 5px;
         }
         
-        .portfolio {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 3rem;
-            margin-top: 1.5rem;
-        }
-        
-        .portfolio img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .portfolio img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .contact-info {
-            background-color: var(--background-color);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-top: 2rem;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-        
-        .contact-info p {
-            margin: 0.5rem 0;
-        }
-        
-        a {
-            color: var(--secondary-color);
+        .sidebar a {
+            color: #3498db;
             text-decoration: none;
-            transition: color 0.3s ease;
         }
         
-        a:hover {
-            color: var(--accent-color);
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+        
+        .portfolio-highlights {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        
+        .portfolio-item {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .portfolio-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 3px;
+        }
+        
+        @media print {
+            body {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
         }
         
         @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
+            body {
+                flex-direction: column;
             }
-            
-            .content {
-                padding: 1rem;
-            }
-            
-            .portfolio {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            .main-content, .sidebar {
+                flex: auto;
+                padding: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
+    <div class="main-content">
+        <div class="header">
             <h1>Illia Haidarenko</h1>
-            <p>3D Artist</p>
-            <p>📍 Remote Work | Open to Relocation</p>
-        </header>
-        
-        <div class="content">
-            <section>
-                <h2>About</h2>
-                <p>21-year-old 3D artist specializing in creating models of objects, scenes, and characters for indie projects. Proficient in managing the full 3D production pipeline, from concept to final asset delivery. Eager to grow and evolve in the dynamic game development industry.</p>
-                <p>Open to full-time, part-time, or freelance opportunities. Enthusiastic about learning new tools and technologies. Prefer small to medium-sized teams with direct communication between participants.</p>
-            </section>
+            <p class="subtitle">3D Artist</p>
+        </div>
 
-            <section>
-                <h2>Education</h2>
-                <div class="project">
-                    <h3>Bachelor's Degree in Computer Science</h3>
-                    <p><em>National Technical University "Kharkiv Polytechnic Institute" (NTU "KhPI")</em></p>
-                    <p><em>Specialization: Modeling, Design, and Computer Graphics</em></p>
-                    <p><em>Graduated: 2024</em></p>
-                </div>
-            </section>
+        <div class="section">
+            <h2>Profile</h2>
+            <p>A 3D artist specializing in creating models of objects, scenes, and characters. Proficient in managing the full 3D production pipeline, from concept to final asset delivery. Eager to grow and evolve in the dynamic game development industry.</p>
+        </div>
 
-            <section>
-                <h2>Skills</h2>
-                <div class="skills">
-                    <span class="skill">3D Modeling</span>
-                    <span class="skill">Low-poly Modeling</span>
-                    <span class="skill">Mid-poly Modeling</span>
-                    <span class="skill">High-poly Modeling</span>
-                    <span class="skill">Retopology</span>
-                    <span class="skill">UV</span>
-                    <span class="skill">Baking</span>
-                    <span class="skill">Texturing</span>
-                </div>
-            </section>
+        <div class="section">
+            <h2>Work Experience</h2>
+            <div class="experience-item">
+                <p class="experience-title">3D Artist | Modern World (Blockchain Game)</p>
+                <p class="experience-date">September 2022 – October 2023</p>
+                <ul>
+                    <li>Created low-poly casual style scenes</li>
+                    <li>Searched and coordinated concept arts</li>
+                    <li>Modeled and textured game objects</li>
+                    <li>Contributed significantly to the game's visual appeal, driving rapid popularity growth in its initial phase</li>
+		    <li>Worked on unreleased casual game project</li>
+		    <li>Created casual style characters</li>
+                </ul>
+            </div>
+        </div>
 
-            <section>
-                <h2>Programs</h2>
-                <div class="programs">
-                    <span class="program">Blender</span>
-                    <span class="program">Substance 3D Painter</span>
-		    <span class="program">Zbrush</span>
-                    <span class="program">Marmoset Toolbag</span>
-                    <span class="program">Marvelous Designer</span>
-                    <span class="program">Unity Engine</span>
-                </div>
-            </section>
+        <div class="section">
+            <h2>Education</h2>
+            <p><strong>Bachelor's Degree in Computer Science</strong><br>
+            National Technical University "Kharkiv Polytechnic Institute" (NTU "KhPI")<br>
+            Specialization: Modeling, Design, and Computer Graphics<br>
+            Graduated: 2024</p>
+        </div>
 
-            <section>
-                <h2>Experience</h2>
-                <div class="project">
-                    <h3>3D Artist | Modern World (Blockchain Game)</h3>
-                    <p><em>September 2022 – May 2023</em></p>
-                    <ul>
-                        <li>Created low-poly scenes</li>
-                        <li>Searched and coordinated concept arts</li>
-                        <li>Modeled and textured game objects</li>
-                        <li>Contributed significantly to the game's visual appeal, driving rapid popularity growth in its initial phase</li>
-                    </ul>
+        <div class="section">
+            <h2>Portfolio Highlights</h2>
+            <div class="portfolio-highlights">
+                <div class="portfolio-item">
+                    <img src="https://cdna.artstation.com/p/assets/covers/images/080/322/166/smaller_square/illia-haidarenko-illia-haidarenko-dracula-3-1.jpg?1727270093" alt="Dracula">
+                    <p>Dracula</p>
                 </div>
-                <div class="project">
-                    <h3>3D Artist | HASS (FNAF Fan Project)</h3>
-                    <p><em>October 2023 - February 2024</em></p>
-                    <ul>
-                        <li>Participated in character concept creation and subsequent 3D modeling</li>
-                        <li>Applied collaborative skills in a non-commercial project environment</li>
-                    </ul>
+                <div class="portfolio-item">
+                    <img src="https://cdnb.artstation.com/p/assets/covers/images/079/917/117/smaller_square/illia-haidarenko-illia-haidarenko-necroid-2.jpg?1726154634" alt="Necroid">
+                    <p>Necroid</p>
                 </div>
-            </section>
+                <div class="portfolio-item">
+                    <img src="https://cdna.artstation.com/p/assets/images/images/067/705/394/20230929120702/smaller_square/illia-haidarenko-arm-render.jpg?1696007222" alt="Arm">
+                    <p>Robotic arm</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            <section>
-                <h2>Language Proficiency</h2>
-                <div class="languages">
-                    <ul>
-                        <li>Ukrainian: Native</li>
-                        <li>Russian: Native</li>
-                        <li>English: Professional Working Proficiency</li>
-                    </ul>
-                </div>
-            </section>
+    <div class="sidebar">
+        <div class="sidebar-section">
+            <h3>Contact</h3>
+            <ul>
+                <li>📧 <a href="mailto:illiahaidarenko@gmail.com">illiahaidarenko@gmail.com</a></li>
+                <li>📱 <a href="tel:+380968685082">+380968685082</a></li>
+                <li>💬 <a href="https://t.me/Grizlichok">Telegram</a></li>
+                <li>💼 <a href="https://www.linkedin.com/in/grizlik">LinkedIn</a></li>
+            </ul>
+        </div>
 
-            <section>
-                <h2>Portfolio Highlights</h2>
-                <p>🌐 <a href="https://www.artstation.com/grizlik">ArtStation</a></p>
-                <div class="portfolio">
-		   <a href="https://www.artstation.com/artwork/XJ1oXw" target="_blank">
-                        <img src="https://cdna.artstation.com/p/assets/images/images/079/916/794/large/illia-haidarenko-necroid-3.jpg?1726154161" alt="Necroid">
-                    </a>
-                    <a href="https://www.artstation.com/artwork/dy83rw" target="_blank">
-                        <img src="https://cdna.artstation.com/p/assets/images/images/079/291/456/large/illia-haidarenko-plantoid.jpg?1724504980" alt="Plantoid">
-                    </a>
-                    <a href="https://www.artstation.com/artwork/oJOzGw" target="_blank">
-                        <img src="https://cdna.artstation.com/p/assets/images/images/078/805/162/large/illia-haidarenko-witch-2.jpg?1723123862" alt="Witch">
-                    </a>
-                    <a href="https://www.artstation.com/artwork/DvDX2A" target="_blank">
-                        <img src="https://cdna.artstation.com/p/assets/images/images/074/229/174/large/illia-haidarenko-render5.jpg?1711547202" alt="Davy Jones">
-                    </a>
-                    <a href="https://www.artstation.com/artwork/aor0J2" target="_blank">
-                        <img src="https://cdnb.artstation.com/p/assets/images/images/067/705/579/large/illia-haidarenko-ben-render2.jpg?1696007419" alt="BEN">
-                    </a>
-                    <a href="https://www.artstation.com/artwork/n0nQg4" target="_blank">
-                        <img src="https://cdna.artstation.com/p/assets/images/images/075/271/238/large/illia-haidarenko-rubick-4.jpg?1714135803" alt="Rubick">
-                    </a>
-                    <a href="https://www.artstation.com/artwork/rJ5lnE" target="_blank">
-                        <img src="https://cdna.artstation.com/p/assets/images/images/067/705/394/large/illia-haidarenko-arm-render.jpg?1696007222" alt="Arm">
-                    </a>
-			<a href="https://www.artstation.com/artwork/39PEVo" target="_blank">
-                        <img src="https://cdnb.artstation.com/p/assets/images/images/067/705/203/large/illia-haidarenko-ae86-render.jpg?1696006568" alt="AE86">
-                    </a>
-                </div>
-            </section>
+        <div class="sidebar-section">
+            <h3>Portfolio</h3>
+            <ul>
+                <li>🌐 <a href="https://www.artstation.com/grizlik">ArtStation</a></li>
+            </ul>
+        </div>
 
-            <section>
-                <h2>Contact Information</h2>
-                <div class="contact-info">
-                    <p>📧 <a href="mailto:illiahaidarenko@gmail.com">illiahaidarenko@gmail.com</a></p>
-                    <p>📱 <a href="tel:+380968685082">+380968685082</a></p>
-                    <p>💬 <a href="https://t.me/Grizlichok">Telegram</a></p>
-                    <p>🌐 <a href="https://www.artstation.com/grizlik">ArtStation</a></p>
-                    <p>💼 <a href="https://www.linkedin.com/in/grizlik">LinkedIn</a></p>
-                </div>
-            </section>
+        <div class="sidebar-section">
+            <h3>Skills</h3>
+            <div class="skills">
+                <span class="skill">3D Modeling</span>
+                <span class="skill">Low-poly Modeling</span>
+                <span class="skill">Mid-poly Modeling</span>
+                <span class="skill">High-poly Modeling</span>
+                <span class="skill">Retopology</span>
+                <span class="skill">UV Mapping</span>
+                <span class="skill">Texture Baking</span>
+                <span class="skill">Texturing</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <h3>Software</h3>
+            <div class="programs">
+                <span class="program">Blender</span>
+                <span class="program">Substance 3D Painter</span>
+                <span class="program">Zbrush</span>
+                <span class="program">Marmoset Toolbag</span>
+                <span class="program">Marvelous Designer</span>
+                <span class="program">Unity Engine</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <h3>Languages</h3>
+            <ul>
+                <li>Ukrainian (Native)</li>
+                <li>Russian (Native)</li>
+                <li>English (Professional Working Proficiency)</li>
+            </ul>
         </div>
     </div>
 </body>
