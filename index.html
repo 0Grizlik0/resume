@@ -5,83 +5,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume - Illia Haidarenko</title>
     <style>
+        /* A4 размеры и настройки печати */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        @media print {
+            html, body {
+                width: 210mm;
+                height: 297mm;
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
         
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 21cm;
+            max-width: 210mm;
+            min-height: 297mm;
             margin: 0 auto;
-            padding: 1cm;
+            padding: 15mm;
             box-sizing: border-box;
             display: flex;
+            background: white;
         }
         
+        /* Основной контейнер */
         .main-content {
             flex: 2;
             padding-right: 20px;
+            max-width: 65%;
         }
         
+        /* Боковая панель */
         .sidebar {
             flex: 1;
             background-color: #f8f8f8;
             padding: 20px;
             border-left: 1px solid #e0e0e0;
+            max-width: 35%;
         }
         
-        .header {
-            margin-bottom: 20px;
-        }
-        
+        /* Заголовки */
         h1 {
             color: #2c3e50;
             margin: 0;
-            font-size: 2.5em;
+            font-size: 28px;
+            margin-bottom: 5px;
         }
         
         h2 {
             color: #3498db;
             border-bottom: 2px solid #3498db;
             padding-bottom: 5px;
-            margin-top: 20px;
+            margin: 20px 0 10px 0;
+            font-size: 20px;
         }
         
         .subtitle {
             font-style: italic;
             color: #7f8c8d;
+            margin: 0 0 20px 0;
+            font-size: 16px;
         }
         
+        /* Секции */
         .section {
             margin-bottom: 20px;
         }
         
-        .skills, .programs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
+        /* Опыт работы */
+        .experience-item ul li {
+            font-size: 13px;
+            margin-bottom: 3px;
+            line-height: 1.4;
         }
-        
-        .skill, .program {
-            background-color: #ecf0f1;
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-size: 0.85em;
-        }
-        
+
         .experience-item {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
-        
         .experience-title {
             font-weight: bold;
+            margin: 0;
+            color: #2c3e50;
         }
         
         .experience-date {
             font-style: italic;
             color: #7f8c8d;
+            margin: 2px 0;
+            font-size: 14px;
         }
         
+        /* Списки */
+        ul {
+            margin: 5px 0;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        /* Portfolio */
+        .portfolio-highlights {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .portfolio-item {
+            background-color: #f0f0f0;
+            padding: 8px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 3px;
+            max-height: 120px;
+            object-fit: cover;
+        }
+        
+        .portfolio-item p {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+        }
+        
+        /* Боковая панель */
         .sidebar-section {
             margin-bottom: 20px;
         }
@@ -90,15 +154,19 @@
             color: #2c3e50;
             border-bottom: 1px solid #3498db;
             padding-bottom: 5px;
+            margin: 0 0 10px 0;
+            font-size: 16px;
         }
         
         .sidebar ul {
             list-style-type: none;
             padding: 0;
+            margin: 0;
         }
         
         .sidebar li {
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-size: 14px;
         }
         
         .sidebar a {
@@ -110,38 +178,35 @@
             text-decoration: underline;
         }
         
-        .portfolio-highlights {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+        /* Skills и Programs */
+        .skills, .programs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
         }
         
-        .portfolio-item {
-            background-color: #f0f0f0;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-        }
-        
-        .portfolio-item img {
-            max-width: 100%;
-            height: auto;
+        .skill, .program {
+            background-color: #ecf0f1;
+            padding: 4px 8px;
             border-radius: 3px;
+            font-size: 13px;
+            color: #2c3e50;
         }
         
-        @media print {
-            body {
-                print-color-adjust: exact;
-                -webkit-print-color-adjust: exact;
-            }
+        /* Общие стили текста */
+        p {
+            margin: 8px 0;
+            font-size: 14px;
+            line-height: 1.6;
         }
         
         @media (max-width: 768px) {
             body {
                 flex-direction: column;
+                padding: 10px;
             }
             .main-content, .sidebar {
-                flex: auto;
+                max-width: 100%;
                 padding: 10px;
             }
         }
@@ -156,20 +221,26 @@
 
         <div class="section">
             <h2>Profile</h2>
-            <p>A 3D artist specializing in creating models of objects, scenes, and characters. Proficient in managing the full 3D production pipeline, from concept to final asset delivery. Eager to grow and evolve in the dynamic game development industry.</p>
+            <p>3D artist with over two years of experience developing skills in 3D modeling and asset creation. Proficient in a wide range of 3D software, with a focus on delivering high-quality assets from concept to final delivery. Currently seeking an opportunity to join a team in the game development industry, where I can apply my skills, gain professional experience, and continue to grow as an artist.</p>
         </div>
 
         <div class="section">
             <h2>Work Experience</h2>
             <div class="experience-item">
-                <p class="experience-title">3D Artist | Modern World</p>
+                <p class="experience-title">Freelance 3D Generalist</p>
+                <p class="experience-date">March 2024 – Present</p>
+                <ul>
+                    <li>Worked on diverse projects, with a particular passion for character creation and stylized design.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <p class="experience-title">Freelance 3D Artist | Modern World Project</p>
                 <p class="experience-date">September 2022 – October 2023</p>
                 <ul>
                     <li>Created low-poly style scenes</li>
                     <li>Searched and coordinated concept arts</li>
-                    <li>Modeled and textured game objects</li>
-                    <li>Contributed significantly to the game's visual appeal, driving rapid popularity growth in its initial phase</li>
-		    <li>Created stylized characters</li>
+                    <li>Modeled and textured objects</li>
+                    <li>Created stylized characters</li>
                 </ul>
             </div>
         </div>
@@ -186,16 +257,16 @@
             <h2>Portfolio Highlights</h2>
             <div class="portfolio-highlights">
                 <div class="portfolio-item">
-                    <img src="https://cdna.artstation.com/p/assets/covers/images/080/322/166/smaller_square/illia-haidarenko-illia-haidarenko-dracula-3-1.jpg?1727270093" alt="Dracula">
-                    <p>Dracula</p>
+                    <img src="https://cdnb.artstation.com/p/assets/images/images/067/705/579/20230929121019/smaller_square/illia-haidarenko-ben-render2.jpg?1696007419" alt="Ben">
+                    <p>Ben</p>
                 </div>
                 <div class="portfolio-item">
                     <img src="https://cdnb.artstation.com/p/assets/covers/images/079/917/117/smaller_square/illia-haidarenko-illia-haidarenko-necroid-2.jpg?1726154634" alt="Necroid">
                     <p>Necroid</p>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://cdna.artstation.com/p/assets/covers/images/081/058/474/smaller_square/illia-haidarenko-illia-haidarenko-bane-preview-copy.jpg?1729250624" alt="Bane">
-                    <p>Bane</p>
+                    <img src="https://cdnb.artstation.com/p/assets/covers/images/081/990/157/smaller_square/illia-haidarenko-illia-haidarenko-steampunk-preview-bx.jpg?1731778844" alt="Steampunk Doctor">
+                    <p>Steampunk</p>
                 </div>
             </div>
         </div>
@@ -215,7 +286,7 @@
         <div class="sidebar-section">
             <h3>Portfolio</h3>
             <ul>
-                <li>🌐 <a href="https://www.artstation.com/grizlik">ArtStation</a></li>
+                <li>🌐 <a href="https://www.artstation.com/grizlik">www.artstation.com/grizlik</a></li>
             </ul>
         </div>
 
