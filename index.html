@@ -78,26 +78,29 @@
             font-size: 16px;
         }
         /* Добавляем новые стили для портфолио */
-       .portfolio-showcase {
-            margin: 20px -20px; /* Отрицательный margin чтобы изображение занимало больше места */
+        .portfolio-showcase {
+            margin: 15px 0 25px 0;
             position: relative;
-            width: calc(100% + 40px); /* Компенсируем отрицательный margin */
+            width: 100%;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-
+        
         .portfolio-showcase img {
             width: 100%;
             height: auto;
             display: block;
             transition: transform 0.3s ease;
+            /* Устанавливаем минимальную высоту, чтобы изображение было больше */
+            min-height: 200px;
+            object-fit: cover;
         }
-
+        
         .portfolio-showcase:hover img {
             transform: scale(1.02);
         }
-
+        
         .portfolio-label {
             position: absolute;
             bottom: 0;
@@ -109,13 +112,8 @@
             font-size: 14px;
             text-align: center;
         }
-
-        /* Добавляем медиа-запрос для печати */
-        @media print {
-            .portfolio-showcase {
-                margin: 20px 0;
-                width: 100%;
-            }
+        .header {
+            margin-bottom: 30px;
         }
         /* Секции */
         .section {
@@ -228,7 +226,7 @@
         <div class="header">
             <h1>Illia Haidarenko</h1>
             <p class="subtitle">3D Artist</p>
-            
+
             <div class="portfolio-showcase">
                 <img src="images/Cover.jpg" alt="Portfolio Showcase - 3D Art Works by Illia Haidarenko">
                 <div class="portfolio-label">Portfolio Highlights</div>
