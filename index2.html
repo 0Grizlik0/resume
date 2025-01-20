@@ -82,10 +82,10 @@
     <div id="message"></div>
 
     <script>
-        // Инициализация Supabase клиента
-        const supabaseUrl = 'https://psmjeemeewhqolihwiyx.supabase.co'
-        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBzbWplZW1lZXdocW9saWh3aXl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzczOTY3NDAsImV4cCI6MjA1Mjk3Mjc0MH0.Zxn6zv7VwTxXAGq9UIIh0yrb_KSIGNHBClaimk9OclY'
-        const supabase = supabase.createClient(supabaseUrl, supabaseKey)
+        const supabaseClient = supabase.createClient(
+            'https://psmjeemeewhqolihwiyx.supabase.co',
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBzbWplZW1lZXdocW9saWh3aXl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzczOTY3NDAsImV4cCI6MjA1Mjk3Mjc0MH0.Zxn6zv7VwTxXAGq9UIIh0yrb_KSIGNHBClaimk9OclY'
+        );
 
         document.getElementById('registrationForm').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -98,7 +98,7 @@
             };
 
             try {
-                const { data, error } = await supabase
+                const { data, error } = await supabaseClient
                     .from('registrations')
                     .insert([formData]);
 
