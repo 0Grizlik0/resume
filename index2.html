@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация на конференцию</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -40,6 +41,22 @@
         button:hover {
             background-color: #0056b3;
         }
+
+        .message {
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
     </style>
 </head>
 <body>
@@ -62,5 +79,40 @@
         
         <button type="submit">Зарегистрироваться</button>
     </form>
+    <div id="message"></div>
+
+    <script>
+        // Инициализация Supabase клиента
+        const supabaseUrl = 'ВАША_ССЫЛКА_НА_ПРОЕКТ' // Например: 'https://xyzproject.supabase.co'
+        const supabaseKey = 'ВАШ_ПУБЛИЧНЫЙ_КЛЮЧ_ANON_KEY'
+        const supabase = supabase.createClient(supabaseUrl, supabaseKey)
+
+        document.getElementById('registrationForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const messageDiv = document.getElementById('message');
+            
+            const formData = {
+                first_name: document.getElementById('firstName').value,
+                last_name: document.getElementById('lastName').value,
+                email: document.getElementById('email').value
+            };
+
+            try {
+                const { data, error } = await supabase
+                    .from('registrations')
+                    .insert([formData]);
+
+                if (error) throw error;
+
+                messageDiv.className = 'message success';
+                messageDiv.textContent = 'Регистрация успешно завершена!';
+                document.getElementById('registrationForm').reset();
+            } catch (error) {
+                messageDiv.className = 'message error';
+                messageDiv.textContent = 'Ошибка при регистрации: ' + error.message;
+                console.error('Error:', error);
+            }
+        });
+    </script>
 </body>
 </html>
