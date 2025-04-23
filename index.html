@@ -2,15 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=deivce-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume - Illia Haidarenko</title>
     <style>
-        /* A4 размеры и настройки печати */
         @page {
             size: A4;
             margin: 0;
         }
-        
         @media print {
             html, body {
                 width: 210mm;
@@ -23,197 +21,35 @@
                 -webkit-print-color-adjust: exact;
             }
         }
-
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 210mm;
-            min-height: 297mm;
-            margin: 0 auto;
-            padding: 10mm;
-            box-sizing: border-box;
-            display: flex;
-            background: white;
-        }
-        
-        /* Основной контейнер */
-        .main-content {
-            flex: 2;
-            padding-right: 10px;
-            max-width: 65%;
-        }
-        
-        /* Боковая панель */
-        .sidebar {
-            flex: 1;
-            background-color: #f8f8f8;
-            padding: 5px;
-            border-left: 1px solid #e0e0e0;
-            max-width: 35%;
-        }
-        
-        /* Заголовки */
-        h1 {
-            color: #2c3e50;
-            margin: 0;
-            font-size: 28px;
-            margin-bottom: 2px;
-        }
-        
-        h2 {
-            color: #3498db;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 2px;
-            margin: 20px 0 10px 0;
-            font-size: 20px;
-        }
-        
-        .subtitle {
-            font-style: italic;
-            color: #7f8c8d;
-            margin: 0 0 20px 0;
-            font-size: 16px;
-        }
-        /* Добавляем новые стили для портфолио */
-        .portfolio-showcase {
-            margin: 20px 0;
-            position: relative;
-            width: 100%;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .portfolio-showcase img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .portfolio-showcase:hover img {
-            transform: scale(1.02);
-        }
-
-        .portfolio-label {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(44, 62, 80, 0.85);
-            color: white;
-            padding: 2px 10px;
-            font-size: 10px;
-            text-align: center;
-        }
-
-        /* Секции */
-        .section {
-            margin-bottom: 20px;
-        }
-        
-        /* Опыт работы */
-        .experience-item ul li {
-            font-size: 13px;
-            margin-bottom: 3px;
-            line-height: 1.4;
-        }
-
-        .experience-item {
-            margin-bottom: 12px;
-        }
-        .experience-title {
-            font-weight: bold;
-            margin: 0;
-            color: #2c3e50;
-        }
-        
-        .experience-date {
-            font-style: italic;
-            color: #7f8c8d;
-            margin: 2px 0;
-            font-size: 14px;
-        }
-        
-        /* Списки */
-        ul {
-            margin: 5px 0;
-            padding-left: 20px;
-        }
-        
-        li {
-            margin-bottom: 5px;
-            font-size: 14px;
-        }
-        
-        /* Боковая панель */
-        .sidebar-section {
-            margin-bottom: 20px;
-        }
-        
-        .sidebar h3 {
-            color: #2c3e50;
-            border-bottom: 1px solid #3498db;
-            padding-bottom: 5px;
-            margin: 0 0 10px 0;
-            font-size: 16px;
-        }
-        
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .sidebar li {
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-        
-        .sidebar a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        
-        .sidebar a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Skills и Programs */
-        .skills, .programs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-        
-        .skill, .program {
-            background-color: #ecf0f1;
-            padding: 4px 8px;
-            border-radius: 3px;
-            font-size: 13px;
-            color: #2c3e50;
-        }
-        
-        /* Общие стили текста */
-        p {
-            margin: 8px 0;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        
-        @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-                padding: 10px;
-            }
-            .main-content, .sidebar {
-                max-width: 100%;
-                padding: 10px;
-            }
-        }
+        body{font-family:'Roboto',sans-serif;line-height:1.6;color:#333;max-width:210mm;min-height:297mm;margin:0 auto;padding:10mm;box-sizing:border-box;display:flex;background:white}
+        .main-content{flex:2;padding-right:10px;max-width:65%}
+        .sidebar{flex:1;background-color:#f8f8f8;padding:15px;border-left:1px solid #e0e0e0;max-width:35%;box-sizing:border-box}
+        h1{color:#2c3e50;margin:0;font-size:28px;margin-bottom:2px}
+        h2{color:#3498db;border-bottom:2px solid #3498db;padding-bottom:2px;margin:20px 0 10px 0;font-size:20px}
+        .subtitle{font-style:italic;color:#7f8c8d;margin:0 0 20px 0;font-size:16px}
+        .portfolio-showcase{margin:20px 0;position:relative;width:100%;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+        .portfolio-showcase img{width:100%;height:auto;display:block;transition:transform 0.3s ease}
+        .portfolio-showcase:hover img{transform:scale(1.02)}
+        .portfolio-label{position:absolute;bottom:0;left:0;right:0;background:rgba(44, 62, 80, 0.85);color:white;padding:2px 10px;font-size:10px;text-align:center}
+        .section{margin-bottom:20px}
+        .experience-item{margin-bottom:12px}
+        .experience-item ul{margin-top:5px;margin-bottom:0;padding-left:20px}
+        .experience-item ul li{font-size:13px;margin-bottom:3px;line-height:1.4}
+        .experience-title{font-weight:bold;margin:0;color:#2c3e50;font-size:14px}
+        .experience-date{font-style:italic;color:#7f8c8d;margin:2px 0;font-size:14px}
+        ul{margin:5px 0;padding-left:20px}
+        li{margin-bottom:5px;font-size:14px}
+        .sidebar-section{margin-bottom:20px}
+        .sidebar h3{color:#2c3e50;border-bottom:1px solid #3498db;padding-bottom:5px;margin:0 0 10px 0;font-size:16px}
+        .sidebar ul{list-style-type:none;padding:0;margin:0}
+        .sidebar li{margin-bottom:8px;font-size:14px;line-height:1.6}
+        .sidebar a{color:#3498db;text-decoration:none;word-break:break-all}
+        .sidebar a:hover{text-decoration:underline}
+        .skills, .programs{display:flex;flex-wrap:wrap;gap:5px;padding:0;list-style-type:none;margin-top:5px}
+        .skill, .program{background-color:#ecf0f1;padding:4px 8px;border-radius:3px;font-size:13px;color:#2c3e50;line-height:1.6}
+        p{margin:8px 0;font-size:14px;line-height:1.6}
+        @media (max-width: 768px){body{flex-direction:column;padding:10px;min-height:auto}.main-content,.sidebar{max-width:100%;padding:10px;width:auto}.sidebar{border-left:none;border-top:1px solid #e0e0e0;margin-top:15px}}
     </style>
 </head>
 <body>
@@ -222,7 +58,6 @@
             <h1>Illia Haidarenko</h1>
             <p class="subtitle">3D Artist</p>
             
-            <!-- секция с портфолио -->
             <div class="portfolio-showcase">
                 <a href="https://www.artstation.com/grizlik" target="_blank">
                     <img src="images/Cover4.jpg" alt="Portfolio Showcase - 3D Art Works by Illia Haidarenko">
@@ -233,35 +68,35 @@
 
         <div class="section">
             <h2>Profile</h2>
-            <p>Hello! I’m a 3D Artist specializing in character, creature and prop creation. I have proficiency in all stages of the production cycle: modeling, sculpting, retopology, texturing and rendering. My experience includes contributing to the development of indie games where I worked closely with a small teams, meeting deadlines and developing as an artist.
-I aspire to develop my skills in a professional enviroment and work on projects that inspire.</p>
+            <p>Hi! I'm a 3D Artist working mainly on game-ready characters, creatures, and props. I'm comfortable with the full production pipeline — from high-poly sculpting to low-poly modeling, texturing (stylized and PBR), and rendering. I usually work in Blender, ZBrush, and Substance Painter, and have experience setting up assets in Unity and Unreal Engine. I enjoy solving technical and artistic challenges and like being part of a team where people support each other and build cool stuff together!
+</p>
         </div>
 
         <div class="section">
             <h2>Work Experience</h2>
-            <div class="experience-item">
+             <div class="experience-item">
                 <p class="experience-title">Freelance 3D Artist</p>
                 <p class="experience-date">October 2023 – Present</p>
                 <ul>
-                    <li>Created 3D models for various projects, specializing in stylized characters and pbr workflow.</li>
-                    <li>Handled the full production pipeline, from sculpting and modeling to texturing and rendering.</li>
-                    <li>Optimized assets for real-time applications while maintaining visual quality.</li>
-                    <li>Adapted models to meet project-specific technical and artistic requirements.</li>
-                    <li>Collaborated to ensure seamless integration into game environments.</li>
+                    <li>Created diverse 3D assets including characters, props, and environment pieces.</li>
+                    <li>Managed the full asset production cycle: sculpting, modeling, retopology, UVs, baking, texturing, rigging, basic animations.</li>
+                    <li>Prepared and validated assets for smooth integration into Unity and Unreal Engine</li>
+                    <li>Configured materials in Unity (Standard & URP) and Unreal Engine</li>
+		    <li>Set up basic scene lighting, organized prefabs, and handled test scenes for presentation and integration</li>
+                    <li>Worked closely with clients to iterate on assets based on technical and artistic feedback.</li>
                 </ul>
             </div>
             <div class="experience-item">
-                <p class="experience-title">Freelance 3D Artist | Modern World Project</p>
+                <p class="experience-title">3D Artist | "Modern World" project</p>
                 <p class="experience-date">September 2022 – October 2023</p>
                 <ul>
-                    <li>Designed and built low-poly environments and props.</li>
                     <li>Sourced and coordinated concept art to align with project requirements.</li>
                     <li>Designed and created stylized characters with a focus on game-ready pipeline.</li>
+                    <li>Designed and created low-poly environments and props.</li>
                     <li>Worked closely with the team to refine and implement visual elements within the game engine.</li>
                 </ul>
             </div>
         </div>
-
 
         <div class="section">
             <h2>Education</h2>
@@ -269,7 +104,7 @@ I aspire to develop my skills in a professional enviroment and work on projects 
             National Technical University "Kharkiv Polytechnic Institute" (NTU "KhPI")<br>
             Specialization: Modeling, Design, and Computer Graphics<br>
             Graduated: 2024</p>
-        </div>
+         </div>
     </div>
 
     <div class="sidebar">
@@ -278,15 +113,15 @@ I aspire to develop my skills in a professional enviroment and work on projects 
             <ul>
                 <li>📧 <a href="mailto:illiahaidarenko@gmail.com">illiahaidarenko@gmail.com</a></li>
                 <li>📱 <a href="tel:+380968685082">+380968685082</a></li>
-                <li>💬 <a href="https://t.me/Grizlichok">Telegram</a></li>
-                <li>💼 <a href="https://www.linkedin.com/in/grizlik">LinkedIn</a></li>
+                <li>💬 <a href="https://t.me/Grizlichok" target="_blank">Telegram</a></li>
+                <li>💼 <a href="https://www.linkedin.com/in/grizlik" target="_blank">LinkedIn</a></li>
             </ul>
         </div>
 
         <div class="sidebar-section">
             <h3>Portfolio</h3>
             <ul>
-                <li>🌐 <a href="https://www.artstation.com/grizlik">www.artstation.com/grizlik</a></li>
+                <li>🌐 <a href="https://www.artstation.com/grizlik" target="_blank">www.artstation.com/grizlik</a></li>
             </ul>
         </div>
 
@@ -294,25 +129,33 @@ I aspire to develop my skills in a professional enviroment and work on projects 
             <h3>Skills</h3>
             <div class="skills">
                 <span class="skill">Sculpting</span>
-                <span class="skill">Hard surface modeling</span>
-                <span class="skill">Organic Modeling</span>
                 <span class="skill">Retopology</span>
                 <span class="skill">UV Mapping</span>
                 <span class="skill">Baking</span>
-                <span class="skill">Texturing</span>
+                <span class="skill">PBR Texturing</span>
+                <span class="skill">Stylized Texturing</span>
+                <span class="skill">Animation</span>
+                <span class="skill">Rigging</span>
+                <span class="skill">Character Art</span>
+                <span class="skill">Prop Art</span>
+                <span class="skill">Asset Optimization</span>
+                <span class="skill">Asset Integration</span>
+                <span class="skill">Material Setup</span>
+                <span class="skill">Lighting Setup</span>
             </div>
         </div>
 
         <div class="sidebar-section">
             <h3>Software</h3>
             <div class="programs">
-                <span class="program">Zbrush</span>
+                <span class="program">ZBrush</span>
                 <span class="program">Blender</span>
                 <span class="program">Substance 3D Painter</span>
                 <span class="program">Marmoset Toolbag</span>
                 <span class="program">Marvelous Designer</span>
                 <span class="program">Unity Engine</span>
-            </div>
+                <span class="program">Unreal Engine</span>
+             </div>
         </div>
 
         <div class="sidebar-section">
@@ -320,7 +163,7 @@ I aspire to develop my skills in a professional enviroment and work on projects 
             <ul>
                 <li>Ukrainian (Native)</li>
                 <li>Russian (Native)</li>
-                <li>English (Professional Working Proficiency)</li>
+                <li>English (Upper-Intermediate)</li>
             </ul>
         </div>
     </div>
